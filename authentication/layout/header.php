@@ -14,7 +14,7 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="../authentication/index.php">
           <img  
@@ -43,9 +43,9 @@
                 Admin
               </a>
               <ul class="dropdown-menu">
-                <li><a class="btn" href="/profile.php">Profile</a></li>
+                <li><a class="btn" href="<?php echo $base_url; ?>/profile.php">Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/logout.php">Logout</a></li>
+                <li><a class="dropdown-item" href="<?php echo $base_url; ?>/logout.php">Logout</a></li>
               </ul>
             </li>  
           </ul>
@@ -55,9 +55,9 @@
           ?>
 
           <ul class="navbar-nav">
-            <li><a class="btn btn-outline-primary me-2" href="/register.php">Register</a></li>
+            <li><a class="btn btn-outline-primary me-2" href="<?php echo $base_url; ?>/register.php">Register</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="btn btn-primary" href="/login.php">Login</a></li>
+            <li><a class="btn btn-primary" href="<?php echo $base_url; ?>/login.php">Login</a></li>
           </ul>
       
           <?php
