@@ -48,6 +48,26 @@
   $error = true;
  }
 
+ include "tools/db.php";
+ $dbConnection = getDatabaseConnection();
+ $statement = $dbConnection->prepare("SELECT id FROM users WHERE email = ?");
+
+ // Bind variables to the prepared statement as parameters
+ $statement->bind_param("s", $email);
+
+ // execute statement
+ $statement->execute();
+
+ // check if email is already in the database
+ $statement->store_result();
+ if($statement->num_rows > 0){
+  $email_error = "Email is already used.";
+  $error = true;
+ }
+
+ // close this statement otherwise we cannot prepare another statement
+ $statement->close();
+
  /************ validate phone ************/ 
  // Define a regex for phone format
  // Optional country code (+ or 00 followed by 1 to 3 digits)
@@ -68,6 +88,41 @@
  if($confirm_password != $password){
   $confirm_password_error = "Password and Confirm Password do not match";
   $error = true;
+ }
+
+ if(!$error){
+  /************ All fields are valid: create a new user ************/
+  $password = password_hash($password, PASSWORD_DEFAULT);
+  $created_at = date('Y-m-d H:i:s');
+
+  // let use prepared statements to avoid "sql injection attacks"
+  $statement = $dbConnection->prepare(
+   "INSERT INTO users (first_name, last_name, email, phone, address, password, created_at) ".
+    "VALUES (?, ?, ?, ?, ?, ?, ?)"
+  );
+
+  // Bind variables to the prepared statement as parameters
+  $statement->bind_param('sssssss', $first_name, $last_name, $email, $phone, $address, $password, $created_at);
+
+  // execute statement
+  $statement->execute();
+
+  $insert_id = $statement->insert_id;
+  $statement->close();
+
+  /************ A new account is created ************/
+  // Save session data
+  $_SESSION["id"] = $insert_id;
+  $_SESSION["first_name"] = $first_name;
+  $_SESSION['last_name'] = $last_name;
+  $_SESSION['email'] = $email;
+  $_SESSION['phone'] = $phone;
+  $_SESSION['address'] = $address;
+  $_SESSION['created_at'] = $created_at;
+
+  // Redirect user to the home page
+  header("location: ". $base_url. "/index.php");
+  exit();
  }
 
 ?>
