@@ -21,7 +21,7 @@
    $dbConnection = getDatabaseConnection();
 
    $statement = $dbConnection->prepare(
-    "SELECT id, first_name, last_name, phone, password, created_at FROM users WHERE email = ?"
+    "SELECT id, first_name, last_name, phone, address, password, created_at FROM users WHERE email = ?"
    );
 
    // Bind variables to the prepared statement as parameters
@@ -31,7 +31,7 @@
    $statement->execute();
 
    // bind result variables
-   $statement->bind_result($id, $first_name, $last_name, $phone, $stored_password, $created_at);
+   $statement->bind_result($id, $first_name, $last_name, $phone, $address, $stored_password, $created_at);
 
    // fetch values
    if($statement->fetch()){
@@ -44,6 +44,7 @@
      $_SESSION["last_name"] = $last_name;
      $_SESSION["email"] = $email;
      $_SESSION["phone"] = $phone;
+     $_SESSION["address"] = $address;
      $_SESSION["created_at"] = $created_at;
 
      // Redirect user to the home page
