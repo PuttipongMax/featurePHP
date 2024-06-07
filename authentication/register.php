@@ -134,8 +134,8 @@
    <hr />
 
    <form method="post">
-    <div class="row mb-3">
-     <label class="col-sm-4 col-form-label">First Name*</label>
+    <div class="row">
+     <label class="col-sm-4 col-form-label ">First Name*</label>
      <div class="col-sm-8">
       <input class="form-control" name="first_name" 
        value="<?php echo $first_name; ?>" />
@@ -143,66 +143,66 @@
      </div>
     <div>
 
-    <div class="row mb-3">
-     <label class="col-sm-4 col-form-label">Last Name*</label>
+    <div class="row ">
+     <label class="col-sm-4 col-form-label mt-3">Last Name*</label>
      <div class="col-sm-8">
-      <input class="form-control" name="last_name" 
+      <input class="form-control mt-3" name="last_name" 
        value="<?php echo $last_name; ?>" />
       <span class="text-danger"><?php echo $last_name_error; ?></span>
      </div>
     <div>
 
-    <div class="row mb-3">
-     <label class="col-sm-4 col-form-label">Email*</label>
+    <div class="row">
+     <label class="col-sm-4 col-form-label mt-3">Email*</label>
      <div class="col-sm-8">
-      <input class="form-control" name="email" 
+      <input class="form-control mt-3" name="email" 
        value="<?php echo $email; ?>" />
       <span class="text-danger"><?php echo $email_error; ?></span>
      </div>
     <div>
 
-    <div class="row mb-3">
-     <label class="col-sm-4 col-form-label">phone*</label>
+    <div class="row ">
+     <label class="col-sm-4 col-form-label mt-3">phone*</label>
      <div class="col-sm-8">
-      <input class="form-control" name="phone" 
+      <input class="form-control mt-3" name="phone" 
        value="<?php echo $phone; ?>" />
       <span class="text-danger"><?php echo $phone_error; ?></span>
      </div>
     <div>
 
-    <div class="row mb-3">
-     <label class="col-sm-4 col-form-label">Address</label>
+    <div class="row">
+     <label class="col-sm-4 col-form-label mt-3">Address</label>
      <div class="col-sm-8">
-      <input class="form-control" name="address" 
+      <input class="form-control mt-3" name="address" 
        value="<?php echo $address; ?>" />
       <span class="text-danger"><?php echo $address_error; ?></span>
      </div>
     <div>
 
-    <div class="row mb-3">
-     <label class="col-sm-4 col-form-label">Password*</label>
+    <div class="row">
+     <label class="col-sm-4 col-form-label mt-3">Password*</label>
      <div class="col-sm-8">
-      <input class="form-control" type="password" name="password" value="" />
+      <input class="form-control mt-3" type="password" name="password" value="" />
       <span class="text-danger"><?php echo $password_error; ?></span>
      </div>
     <div>
 
-    <div class="row mb-3">
-     <label class="col-sm-4 col-form-label">Confirm Password*</label>
+    <div class="row">
+     <label class="col-sm-4 col-form-label mt-3">Confirm Password*</label>
      <div class="col-sm-8">
-      <input class="form-control" type="password" name="confirm_password" value="" />
+      <input class="form-control mt-3" type="password" name="confirm_password" value="" />
       <span class="text-danger"><?php echo $confirm_password_error; ?></span>
      </div>
     <div>
 
-    <div class="row mb-3">
-     <div class="offset-sm-4 col-sm-4 d-grid">
+    <div class="row">
+     <div class="offset-sm-4 col-sm-4 d-grid mt-3">
       <button type="submit" class="btn btn-primary">Register</button>
      </div>
-     <div class="col-sm-4 d-grid">
+     <div class="col-sm-4 d-grid mt-3">
       <a 
        href="<?php echo $base_url; ?>/index.php"
-       class="btn btn-outline-primary"
+       class="btn btn-outline-primary "
       >
        Cancel
       </a>
