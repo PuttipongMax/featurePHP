@@ -4,6 +4,7 @@
   $authenticated = false;
   if(isset($_SESSION['email'])){
     $authenticated = true;
+    // echo $_SESSION['first_name'];
   }
 ?>
 
