@@ -4,9 +4,9 @@
   $query = 'SELECT * FROM courses ORDER BY courseID';
   $statement = $db->prepare($query);
   $statement->execute();
-  $assignments = $statement->fetchAll();
+  $courses = $statement->fetchAll();
   $statement->closeCursor();
-  return $assignments;
+  return $courses;
  }
 
  function get_course_name($course_id){
